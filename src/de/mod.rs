@@ -681,6 +681,10 @@ impl<'de> Deserializer<'de, SliceReader<'de>> {
             .trim_text(true);
         Self::new(SliceReader { reader })
     }
+
+    pub fn with_reader(reader: Reader<&'de [u8]>) -> Self {
+        Self::new(SliceReader { reader })
+    }
 }
 
 impl<'de, R> Deserializer<'de, IoReader<R>>
